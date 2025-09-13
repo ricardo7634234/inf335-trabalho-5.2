@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/seu-repositorio.git'
+                git 'https://github.com/ricardo7634234/inf335-trabalho-5.2/'
             }
         }
 
