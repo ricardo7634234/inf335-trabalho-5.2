@@ -13,7 +13,6 @@ pipeline {
                 script {
                     // Reutilizar camadas da imagem anterior
                     bat '''
-                        docker pull olaunicamp-java-app:latest || echo "No cache available"
                         docker build --cache-from=olaunicamp-java-app:latest -t olaunicamp-java-app:latest .
                     '''
                 }
