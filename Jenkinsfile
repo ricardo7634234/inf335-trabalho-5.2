@@ -11,7 +11,11 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    bat 'docker build -t olaunicamp-java-app .'
+                    // Reutilizar camadas da imagem anterior
+                    bat '''
+                        docker pull olaunicamp-app:latest || echo "No cache available"
+                        docker build --cache-from=olaunicamp-app:latest -t olaunicamp-app:latest .
+                    '''
                 }
             }
         }
